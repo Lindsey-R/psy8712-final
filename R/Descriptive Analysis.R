@@ -5,14 +5,15 @@ library(psych)
 library(ggplot2)
 
 # ---- Data Import and Cleaning ----
-GRE_data <- read_csv("../data/GRE Filtered Major.csv")
+GRE_data <- read_csv("../data/GRE Filtered Major.csv") 
+## Rather than read.csv b/c read_csv is faster and keep the tidy format
 
 # ---- Analysis ----
-## ---- Descriptive Analysis - Mean and SD ----
+## ---- Descriptive Analysis - Mean and SD for continuous variables ----
 
-## Overal Mean, SDs
+## Overal Mean, SDs 
 GRE_data %>%
-  select(-Sex, -Citizenship, -StudyID, -GraduateFieldProgram) %>%
+  select(-Sex, -Citizenship, -StudyID, -GraduateFieldProgram) %>% # de-select categorical variables
   describe()
 #                       vars    n   mean   sd median trimmed  mad min   max range  skew kurtosis   se
 # GREQuantitative          1 3594 164.08 5.97  166.0  165.04 4.45 132 170.0  38.0 -1.50     2.49 0.10
@@ -22,11 +23,13 @@ GRE_data %>%
 # stay                     6 3594   0.97 0.16    1.0    1.00 0.00   0   1.0   1.0 -5.80    31.68 0.00
 
 ## Mean, SDs for different categories
+## First, code categorical variables as factors; 
+## then, calculate mean and sd for each continuous variable under each categorical variable combination
 GRE_data_descriptive <- GRE_data %>%
   mutate(Sex = factor(Sex),
          Citizenship = factor(Citizenship),
          GraduateFieldProgram = factor(GraduateFieldProgram)) %>% # Convert chr to factors
-  group_by(Sex, Citizenship, GraduateFieldProgram) %>% ## Group by different groups
+  group_by(Sex, Citizenship, GraduateFieldProgram) %>% ## Group by categorical variables
   summarise( 
     N = n(), ## Count the total sample
     M_GREQ = mean(GREQuantitative) |>round(2), ## Mean round to 2 decimals

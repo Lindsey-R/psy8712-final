@@ -5,54 +5,55 @@ library(ggplot2)
 
 # ---- Data Import and Cleaning ----
 GRE_data <- read_csv("../data/GRE Filtered Major.csv")
+## Faster and align with tidy format
 
 # ---- Analysis ----
-GRE_Mean_Diff <- GRE_data %>%
-  mutate(Sex = factor(Sex)) 
 
-vars <- c("GREQuantitative", "GREVerbal")
-
-# Initialize a list to store results
-anova_results <- list()
-
-# Perform ANOVA
-for (i in vars) {
-  # Dynamically build the formula
-  formula_str <- as.formula(paste(i, "~ Sex"))
+## Select Female and Male data separately for t-test
+## Use dplyr functions for tidy format
+GRE_Female <- GRE_data %>%
+  filter(Sex == "Female") %>%
+  select(Sex, GREVerbal, GREQuantitative)
+GRE_Male <- GRE_data %>%
+  filter(Sex == "Male") %>%
+  select(Sex, GREVerbal, GREQuantitative)
   
-  # Perform ANOVA
-  model <- aov(formula_str, data = GRE_Mean_Diff)
-  summary_model <- summary(model)
-  
-  # Store the results
-  anova_results[[i]] <- summary_model
-  
-}
+## Quantitative Difference
+t.test(GRE_Female$GREQuantitative, GRE_Male$GREQuantitative, alternative = "two.sided")
 
-## ---- ANOVA results ----
-## Function to build a dataframe to summary result
-results_table <- do.call(rbind, lapply(anova_results, function(x) {
-  data.frame(
-    Df = x[[1]][["Df"]][1], ## extracted from ANOVA results for each separate model
-    SumSq = x[[1]][["Sum Sq"]][1],
-    MeanSq = x[[1]][["Mean Sq"]][1],
-    FValue = x[[1]][["F value"]][1],
-    PrF = x[[1]][["Pr(>F)"]][1]
-  )
-}))
-rownames(results_table) <- vars
+# Welch Two Sample t-test
+# 
+# data:  GRE_Female$GREQuantitative and GRE_Male$GREQuantitative
+# t = -6.8421, df = 2827.9, p-value = 9.532e-12
+# alternative hypothesis: true difference in means is not equal to 0
+# 95 percent confidence interval:
+#   -1.833804 -1.016859
+# sample estimates:
+#   mean of x mean of y 
+# 163.2690  164.6944 
 
-results_table
-#                 Df     SumSq    MeanSq   FValue          PrF
-# GREQuantitative  1 1741.0278 1741.0278 49.32353 2.591444e-12
-# GREVerbal        1  699.2831  699.2831 16.35938 5.351482e-05
+## Verbal Difference
+t.test(GRE_Female$GREVerbal, GRE_Male$GREVerbal, alternative = "two.sided")
+
+# Welch Two Sample t-test
+# 
+# data:  GRE_Female$GREVerbal and GRE_Male$GREVerbal
+# t = -4.0849, df = 3239.2, p-value = 4.516e-05
+# alternative hypothesis: true difference in means is not equal to 0
+# 95 percent confidence interval:
+#   -1.3368938 -0.4697379
+# sample estimates:
+#   mean of x mean of y 
+# 154.5340  155.4373 
 
 ## ---- Boxplot ----
+## First, transfer data into longer format so it's easier to draw plot
 RQ1_Plotdata <- pivot_longer(GRE_Mean_Diff, 
                              cols = c(GREQuantitative, GREVerbal), 
                              names_to = "variables", 
                              values_to = "value")
 
+## Draw plot with ggplot rather than base-R plot so the plot is neat and can specify more customizations
 RQ1_Plot <- ggplot(RQ1_Plotdata, aes(x = Sex, y = value, fill = variables)) +
   geom_boxplot() +
   labs(title = "Distribution of Measurements by Sex",
@@ -60,4 +61,5 @@ RQ1_Plot <- ggplot(RQ1_Plotdata, aes(x = Sex, y = value, fill = variables)) +
        y = "Measurement Value") +
   facet_wrap(~ variables) 
 
+## Show plot
 RQ1_Plot
