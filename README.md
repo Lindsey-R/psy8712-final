@@ -8,3 +8,4 @@ In the current project, I perform analysis based on a [pre-collected GRE dataset
 To reproduce the current R project, one first download the "GRE IVY.sav" file from the above link and put it in the "data" folder.   
 The "R" folder contains five R files.
 * Data Clean.R
+  
