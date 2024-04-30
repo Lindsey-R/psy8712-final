@@ -16,9 +16,9 @@ The project focuses on answering three research questions with the above dataset
   1. Data Clean.R  
   This file should be run first. It clean up the dataset, filter out missing data, and select variables of interest. After filtering out majors with more than 300 students, data are saved in the file "GRE Filtered Major.csv" in the data folder (which is published in the "data" folder). This data is used for all future analysis. Another skinny dataset, "GRE shiny.csv", is also saved for shiny project (will discuss in later sessions).
   2. Descriptive Analysis.R  
-   This file shows descriptive data (i.e., mean and standard deviation) for 1) overall GRE and GPA; 2) GRE (Verbal adn Quant) and GPA for interactions of demographic groups. Also, it shows histogram plots of GRE (Verbal adn Quant) and GPA distribution and saved in "figs" folder.
+   This file shows descriptive data (i.e., mean and standard deviation) for 1) overall GRE and GPA; 2) GRE (Verbal adn Quant) and GPA for interactions of demographic groups. Also, it shows histogram plots of GRE (Verbal adn Quant) and GPA distribution and saved in "figs" folder ("Descriptive Plot").
   3. RQ1 - Mean Differences.R    
-   This file answers the 1st research question, running a t-test showing the mean differences of GRE (Verbal adn Quant) scores between sex, together with a plot save in the "figs" folder.
+   This file answers the 1st research question, running a t-test showing the mean differences of GRE (Verbal adn Quant) scores between sex, together with a plot "RQ1 Plot" save in the "figs" folder.
   4. RQ2 - Correlation Analysis.R   
    This file answers the 2nd research question, producing correlation table between GRE (Verbal adn Quant) and GPA under each demographic group.
   5. RQ3 - predicting GPA.R    
