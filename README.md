@@ -26,4 +26,9 @@ The project focuses on answering three research questions with the above dataset
    This file answers the 3rd research question, predict GPA with all selected variables using for ML models: OLS, glmnet, random forest, and xgboost.   
 * The "shiny" folder contains a shinyapp "GREShinyAPP". It contains "app.R" showing the script of a shiny app, and "data.rds" used to produce the shiny app. The shiny app can be found [here](https://purplefishlovespig.shinyapps.io/greshinyapp/).
 
-* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Lindsey-R/psy8712-final/HEAD)
+
+### Binder
+* A binder is an online code repository contains code and contents, together with configuration files to create a project from the scratch. When saving an R project in a binder, it saves the R version being used to create the project to avoid possible confusions in future replications.  Therefore, I create a binder for the current project with mybinder.org, which is an online service to build and share binders. The binder for the current project can be found here
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Lindsey-R/psy8712-final/HEAD?urlpath=rstudio). Clicking this link will automatically open an R studio session built under R 4.2.3 (the version I use to run the project) with corresponding codes and data. ![image](https://github.com/Lindsey-R/psy8712-final/assets/105560190/41178e2f-7653-4a09-a165-7b6b8b6f0ed8)
+
+
