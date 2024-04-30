@@ -75,12 +75,13 @@ stopCluster(local_cluster)
 registerDoSEQ() ## STOP parallelization
 
 
-# Publication
+# R2 Results
 R2_ols <- cor(ols_predict, GRE_test_tbl$`GPA`)^2 |> round(2)
 R2_elastic <- cor(elastic_predict, GRE_test_tbl$`GPA`)^2 |> round(2)
 R2_rf <- cor(rf_predict, GRE_test_tbl$`GPA`) ^2 |> round(2)
 R2_xgb <- cor(xgb_predict, GRE_test_tbl$`GPA`) ^2 |> round(2)
 
+## Create results as a tibble
 results <- tibble(
   algo = c("OLS regression","Elastic Net", "Random Forest", "XGB"),
   cv_rsq = c(round(max(model_ols$results$Rsquared),2),
