@@ -13,10 +13,8 @@ cor(GRE_data$GREQuantitative, GRE_data$GPA) ## 0.23
 
 # Calculate Correlation table
 GRE_data_correlation <- GRE_data %>%
-  mutate(Sex = factor(Sex),
-         Citizenship = factor(Citizenship),
-         GraduateFieldProgram = factor(GraduateFieldProgram)) %>% # Convert chr to factors
-  group_by(Sex, Citizenship, GraduateFieldProgram) %>% ## Group by different groups
+  mutate(Sex = factor(Sex)) %>% # Convert Sex to factors
+  group_by(Sex) %>% ## Group by sex
   summarise(
     Cor_QG = cor(GREQuantitative, GPA) |> round(2), ## Put round 2 here so the code is more neat
     Cor_VG = cor(GREVerbal, GPA) |>round(2),
@@ -24,4 +22,5 @@ GRE_data_correlation <- GRE_data %>%
     .groups = 'drop'  # drops the grouping
   )
 
-
+ 
+GRE_data_correlation %>% View()

@@ -20,7 +20,7 @@ GRE_Male <- GRE_data %>%
   select(Sex, GREVerbal, GREQuantitative)
   
 ## Quantitative Difference
-t.test(GRE_Female$GREQuantitative, GRE_Male$GREQuantitative, alternative = "two.sided")
+GREQresult <- t.test(GRE_Female$GREQuantitative, GRE_Male$GREQuantitative, alternative = "two.sided")
 
 # Welch Two Sample t-test
 # 
@@ -33,8 +33,9 @@ t.test(GRE_Female$GREQuantitative, GRE_Male$GREQuantitative, alternative = "two.
 #   mean of x mean of y 
 # 163.2690  164.6944 
 
+
 ## Verbal Difference
-t.test(GRE_Female$GREVerbal, GRE_Male$GREVerbal, alternative = "two.sided")
+GREVresult <-t.test(GRE_Female$GREVerbal, GRE_Male$GREVerbal, alternative = "two.sided")
 
 # Welch Two Sample t-test
 # 
@@ -46,6 +47,7 @@ t.test(GRE_Female$GREVerbal, GRE_Male$GREVerbal, alternative = "two.sided")
 # sample estimates:
 #   mean of x mean of y 
 # 154.5340  155.4373 
+
 
 
 ## ---- Boxplot ----
@@ -72,3 +74,19 @@ H1_Plot
 ggsave("../figs/H1 Plot.png", H1_Plot,
        height = 6,width = 9,dpi=600)
 
+
+# ---- Publication ----
+
+## Publication text
+formatted_value <- sprintf("%.2f", GREQresult$p.value) ## Round p value to 2
+final_value <- sub("^0", "", formatted_value)  # Remove leading 0
+paste0("There was a significant difference of GRE Quantitative scores between male and female, t(", 
+       round(GREQresult$parameter), ") = ", round(GREQresult$statistic, 2), ", p = ",final_value, "." )
+## There was a significant difference of GRE Quantitative scores between male and female, t(2828) = -6.84 p = .00
+
+## Publication text
+formatted_value <- sprintf("%.2f", GREVresult$p.value) ## Round p value to 2
+final_value <- sub("^0", "", formatted_value)  # Remove leading 0
+paste0("There was a significant difference of GRE Verbal scores between male and female, t(", 
+       round(GREVresult$parameter), ") = ", round(GREVresult$statistic, 2), ", p = ",final_value, "." )
+## There was a significant difference of GRE Verbal scores between male and female, t(3239) = -4.08, p = .00
