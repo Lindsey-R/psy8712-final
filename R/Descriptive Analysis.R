@@ -3,6 +3,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 library(tidyverse)
 library(psych)
 library(ggplot2)
+library(knitr)
 
 # ---- Data Import and Cleaning ----
 GRE_data <- read_csv("../data/GRE Filtered Major.csv") 
@@ -11,17 +12,16 @@ GRE_data <- read_csv("../data/GRE Filtered Major.csv")
 # ---- Analysis ----
 ## ---- Descriptive Analysis - Mean and SD for continuous variables ----
 
-## Overal Mean, SDs 
-GRE_data %>%
-  select(-Sex, -Citizenship, -StudyID, -GraduateFieldProgram) %>% # de-select categorical variables
-  describe()
-#                       vars    n   mean   sd median trimmed  mad min   max range  skew kurtosis   se
-# GREQuantitative          1 3594 164.08 5.97  166.0  165.04 4.45 132 170.0  38.0 -1.50     2.49 0.10
-# GREVerbal                2 3594 155.10 6.59  155.0  155.08 5.93 130 170.0  40.0 -0.03    -0.02 0.11
-# GREWriting               3 3594   3.68 0.70    3.5    3.61 0.74   1   6.0   5.0  0.72     0.25 0.01
-# GPA                      5 3594   3.61 0.56    3.7    3.68 0.31   0   4.3   4.3 -4.37    25.40 0.01
-# stay                     6 3594   0.97 0.16    1.0    1.00 0.00   0   1.0   1.0 -5.80    31.68 0.00
-
+## Descriptive data showing overal Mean, SDs 
+GRE_descriptive <- GRE_data %>%
+  # de-select categorical variables
+  select(-Sex, -Citizenship, -StudyID, -GraduateFieldProgram, -stay, -GRESum) %>% ## Deselect categorical variables and GRESum
+  describe() %>% # psych function to obtain descriptive data
+  select(n, mean, sd) %>% # get mean and sd
+  mutate(mean = round(mean,2), # round to 2 decimals
+         sd = round(sd,2))
+## This table is copy paste in word to create apa style table
+ 
 ## Mean, SDs for different categories
 ## First, code categorical variables as factors; 
 ## then, calculate mean and sd for each continuous variable under each categorical variable combination
@@ -43,6 +43,9 @@ GRE_data_descriptive <- GRE_data %>%
     .groups = 'drop') ## Calculate Summarize statistics and drop groups afterwards
 ## I did not put round at last because there are categorical variables and cannot be round
 ## These data will be used to create table in the report
+
+## Save this descriptive data to output
+# write_csv(GRE_data_descriptive, "../out/Descriptive Data by Demographic Groups.csv")
 
 ## ---- Descriptive Plot ----
 ## I decide to draw plot for GRE scores and GPA for overall population

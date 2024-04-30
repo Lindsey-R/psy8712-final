@@ -9,6 +9,7 @@ GRE_data <- read_csv("../data/GRE Filtered Major.csv")
 
 # ---- Analysis ----
 
+## ---- t-test ----
 ## Select Female and Male data separately for t-test
 ## Use dplyr functions for tidy format
 GRE_Female <- GRE_data %>%
@@ -45,6 +46,7 @@ t.test(GRE_Female$GREVerbal, GRE_Male$GREVerbal, alternative = "two.sided")
 # sample estimates:
 #   mean of x mean of y 
 # 154.5340  155.4373 
+
 
 ## ---- Boxplot ----
 ## Select GRE variables used to draw plot
