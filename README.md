@@ -25,3 +25,5 @@ The project focuses on answering three research questions with the above dataset
   5. RQ3 - predicting GPA.R    
    This file answers the 3rd research question, predict GPA with all selected variables using for ML models: OLS, glmnet, random forest, and xgboost.   
 * The "shiny" folder contains a shinyapp "GREShinyAPP". It contains "app.R" showing the script of a shiny app, and "data.rds" used to produce the shiny app. The shiny app can be found [here](https://purplefishlovespig.shinyapps.io/greshinyapp/).
+
+* [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Lindsey-R/psy8712-final/HEAD)
