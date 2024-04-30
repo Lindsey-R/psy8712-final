@@ -11,10 +11,10 @@ The project focuses on answering three research questions with the above dataset
 3. How well can we predict 1st-year GPA with GRE scores and demographic information using maching learning models?
 
 ### Project Reproduce
-* To reproduce the current R project, one first download the "GRE IVY.sav" file from the above link and put it in the "data" folder.   
+* To reproduce the current R project, one can first download the "GRE IVY.sav" file from the above link and put it in the "data" folder.  
 * The "R" folder contains five R files.
   1. Data Clean.R  
-  This file should be run first. It clean up the dataset, filter out missing data, and select variables of interest. After filtering out majors with more than 300 students, data are saved in the file "GRE Filtered Major.csv" in the data folder. This data is used for all future analysis. Another skinny dataset, "GRE shiny.csv", is also saved for shiny project (will discuss in later sessions).
+  This file should be run first. It clean up the dataset, filter out missing data, and select variables of interest. After filtering out majors with more than 300 students, data are saved in the file "GRE Filtered Major.csv" in the data folder (which is published in the "data" folder). This data is used for all future analysis. Another skinny dataset, "GRE shiny.csv", is also saved for shiny project (will discuss in later sessions).
   2. Descriptive Analysis.R  
    This file shows descriptive data for 1) overall GRE and GPA; 2) GRE and GPA under each demographic group. Also, it shows a plot of GRE and GPA distribution and saved in "figs" folder.
   3. RQ1 - Mean Differences.R    
