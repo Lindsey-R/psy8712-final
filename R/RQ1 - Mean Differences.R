@@ -53,13 +53,13 @@ t.test(GRE_Female$GREVerbal, GRE_Male$GREVerbal, alternative = "two.sided")
 GRE_Mean_Diff <- GRE_data %>%
   select(Sex, GREQuantitative, GREVerbal)
 ## Transfer data into longer format so it's easier to draw plot
-RQ1_Plotdata <- pivot_longer(GRE_Mean_Diff, 
+H1_Plotdata <- pivot_longer(GRE_Mean_Diff, 
                              cols = c(GREQuantitative, GREVerbal), 
                              names_to = "variables", 
                              values_to = "value")
 
 ## Draw plot with ggplot rather than base-R plot so the plot is neat and can specify more customizations
-RQ1_Plot <- ggplot(RQ1_Plotdata, aes(x = Sex, y = value, fill = variables)) +
+H1_Plot <- ggplot(H1_Plotdata, aes(x = Sex, y = value, fill = variables)) +
   geom_boxplot() +
   labs(title = "Mean GRE Score Difference Across Sex",
        x = "Sex",
@@ -67,7 +67,8 @@ RQ1_Plot <- ggplot(RQ1_Plotdata, aes(x = Sex, y = value, fill = variables)) +
   facet_wrap(~ variables) 
 
 ## Show plot
-RQ1_Plot 
+H1_Plot 
 ## Save plot to figs to put in script later
-ggsave("../figs/RQ1 Plot.png", RQ1_Plot,
+ggsave("../figs/H1 Plot.png", H1_Plot,
        height = 6,width = 9,dpi=600)
+
