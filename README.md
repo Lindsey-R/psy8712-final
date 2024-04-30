@@ -23,4 +23,4 @@ The project focuses on answering three research questions with the above dataset
    This file answers the 2nd research question, producing correlation table between GRE and GPA under each demographic group.
   5. RQ3 - predicting GPA.R    
    This file answers the 3rd research question, predict GPA with all selected variables using for ML models: OLS, glmnet, random forest, and xgboost.   
-* The "shiny" folder contains a shinyapp "GREShinyAPP". It contains "app.R" showing the script of a shiny app, and "data.rds" used to produce the shiny app. 
+* The "shiny" folder contains a shinyapp "GREShinyAPP". It contains "app.R" showing the script of a shiny app, and "data.rds" used to produce the shiny app. The shiny app can be found (here)[https://purplefishlovespig.shinyapps.io/greshinyapp/]
