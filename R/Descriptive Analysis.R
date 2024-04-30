@@ -55,9 +55,11 @@ GRE_plot <- pivot_longer(GRE_data,
 plot <- ggplot(GRE_plot, aes(x = value)) +
   geom_histogram(fill = "steelblue", color = "black", bins = 20) +
   facet_wrap(~variable, scales = "free_x") +
-  labs(title = "Distribution of GRE Scores and GPA", x = "Score", y = "Frequency") +
-  theme_minimal() 
+  labs(title = "Distribution of GRE Scores and GPA", x = "Score", y = "Frequency") 
 
+## Show Plot
 plot
-
+## Save Plot to figs
+ggsave("../figs/Descriptive Plot.png", plot,
+       height = 3,width = 9,dpi=600)
 
