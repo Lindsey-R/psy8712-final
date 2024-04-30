@@ -47,13 +47,14 @@ GRE_data_descriptive <- GRE_data %>%
 ## ---- Descriptive Plot ----
 ## I decide to draw plot for GRE scores and GPA for overall population
 
+## Put the data in longer format so it is eaiser to draw graph
 GRE_plot <- pivot_longer(GRE_data, 
                          cols = c(GREVerbal, GREQuantitative, GPA), 
                          names_to = "variable", values_to = "value")
 
 # Draw plot
 plot <- ggplot(GRE_plot, aes(x = value)) +
-  geom_histogram(fill = "steelblue", color = "black", bins = 20) +
+  geom_histogram(fill = "steelblue", color = "black", bins = 20) + ## fill colors for columns in histogram
   facet_wrap(~variable, scales = "free_x") +
   labs(title = "Distribution of GRE Scores and GPA", x = "Score", y = "Frequency") 
 
