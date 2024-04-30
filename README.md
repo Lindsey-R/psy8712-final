@@ -7,7 +7,7 @@ In the current project, I perform analysis based on a [pre-collected GRE dataset
 ### Project Description
 The project focuses on answering three research questions with the above dataset:
 1. Are there mean differences in GRE Verbal and GRE Quant scores between male and female?
-2. What is the correlation pattern between GPA and GRE under each separate demographic group (separated by sex x age x citizenship x major)?
+2. What is the correlation pattern between GPA and GRE under each separate demographic group interactions (separated by sex x age x citizenship x major)?
 3. How well can we predict 1st-year GPA with GRE scores and demographic information using maching learning models?
 
 ### Project Reproduce
