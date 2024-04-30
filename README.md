@@ -19,7 +19,7 @@ RQ2. How well can I predict 1st-Year GPA with GRE and demographic information us
   2. Descriptive Analysis.R  
    This file shows descriptive data (i.e., mean and standard deviation) for 1) overall GRE and GPA; 2) GRE (Verbal adn Quant) and GPA for interactions of demographic groups. Also, it shows histogram plots of GRE (Verbal adn Quant) and GPA distribution and saved in "figs" folder ("Descriptive Plot").
   3. H1 - Mean Differences.R    
-   This file answers the 1st research question, running a t-test showing the mean differences of GRE (Verbal adn Quant) scores between sex, together with a plot "H1 Plot" save in the "figs" folder.
+   This file answers the 1st hyoothesis, running a t-test showing the mean differences of GRE (Verbal adn Quant) scores between sex, together with a plot "H1 Plot" save in the "figs" folder.
   4. RQ1 - Correlation Analysis.R   
    This file answers the 1st research question, producing correlation table between GRE (Verbal adn Quant) and GPA for each sex.
   5. RQ2 - predicting GPA.R    
