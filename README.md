@@ -5,10 +5,10 @@ The current project is consisted of the final project material for PSY8712 class
 In the current project, I perform analysis based on a [pre-collected GRE dataset](https://www.openicpsr.org/openicpsr/project/155721/version/V1/view;jsessionid=CCA87775E2BAE63EE1B4FC92FF3AE409>). The dataset contains demographic information (sex, age, citizenship, major), GRE scores (GRE Verbal, Quant, and Writing), and other related outcomes (First Year GPA, etc.). 
 
 ### Project Description
-The project focuses on answering three research questions with the above dataset:
-1. Is there a significant sex difference on GRE Verbal / Quantitative score?
-2. What are the correlations between GRE Verbal / Quantitative score with GPA across different demographic groups (separated by sex, age, citizenship, and major)?
-3. How well can I predict 1st-Year GPA with GRE and demographic information using machine learning models? 
+The project focuses on answering three hypothesis / research questions with the above dataset:
+H1. Is there a significant sex difference on GRE Verbal / Quantitative score?
+RQ1. What are the correlations between GRE Verbal / Quantitative score with GPA across sex?
+RQ2. How well can I predict 1st-Year GPA with GRE and demographic information using machine learning models? 
 
 
 ### Project Reproduce
@@ -19,12 +19,15 @@ The project focuses on answering three research questions with the above dataset
   2. Descriptive Analysis.R  
    This file shows descriptive data (i.e., mean and standard deviation) for 1) overall GRE and GPA; 2) GRE (Verbal adn Quant) and GPA for interactions of demographic groups. Also, it shows histogram plots of GRE (Verbal adn Quant) and GPA distribution and saved in "figs" folder ("Descriptive Plot").
   3. H1 - Mean Differences.R    
-   This file answers the 1st research question, running a t-test showing the mean differences of GRE (Verbal adn Quant) scores between sex, together with a plot "H1 Plot" save in the "figs" folder.
+   This file answers the 1st hyoothesis, running a t-test showing the mean differences of GRE (Verbal adn Quant) scores between sex, together with a plot "H1 Plot" save in the "figs" folder.
   4. RQ1 - Correlation Analysis.R   
-   This file answers the 2nd research question, producing correlation table between GRE (Verbal adn Quant) and GPA under each demographic group.
+   This file answers the 1st research question, producing correlation table between GRE (Verbal adn Quant) and GPA for each sex.
   5. RQ2 - predicting GPA.R    
-   This file answers the 3rd research question, predict GPA with all selected variables using for ML models: OLS, glmnet, random forest, and xgboost.   
-* The "shiny" folder contains a shinyapp "GREShinyAPP". It contains "app.R" showing the script of a shiny app, and "data.rds" used to produce the shiny app. The shiny app can be found [here](https://purplefishlovespig.shinyapps.io/greshinyapp/).
+   This file answers the 2nd research question, predict GPA with all selected variables using for ML models: OLS, glmnet, random forest, and xgboost.   
+* The "shiny" folder contains a shinyapp "GREShinyAPP".
+  1. The app contains "app.R" showing the script of a shiny app, and "data.rds" used to produce the shiny app. The shiny app can be found [here](https://purplefishlovespig.shinyapps.io/greshinyapp/).
+  2. The app was created as an extension of RQ1, with interacting plots showing correlations based on different demographic groups. Specifically, allows user to choose from five options: Sex, Citizenship,  Major (Graduate Field Program), whether student finished program (Stay), and GRE (GRE Verbal, Quantitative, or Sum score). Based on the user’s choice, the app returns 1) a scatter plot showing the correlations between the selected GRE and GPA, with a linear predicting line and 2) a line of text output the correlation. 
+
 
 
 ### Binder
