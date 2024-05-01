@@ -6,9 +6,9 @@ In the current project, I perform analysis based on a [pre-collected GRE dataset
 
 ### Project Description
 The project focuses on answering three hypothesis / research questions with the above dataset:
-H1. Is there a significant sex difference on GRE Verbal / Quantitative score?
-RQ1. What are the correlations between GRE Verbal / Quantitative score with GPA across sex?
-RQ2. How well can I predict 1st-Year GPA with GRE and demographic information using machine learning models? 
+H1. Is there a significant sex difference on GRE Verbal / Quantitative score?  
+RQ1. What are the correlations between GRE Verbal / Quantitative score with GPA across sex?  
+RQ2. How well can I predict 1st-Year GPA with GRE and demographic information using machine learning models?   
 
 
 ### Project Reproduce
