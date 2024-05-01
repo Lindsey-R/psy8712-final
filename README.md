@@ -31,7 +31,7 @@ RQ2. How well can I predict 1st-Year GPA with GRE and demographic information us
 
 
 ### Binder
-* A binder is an online code repository contains code and contents, together with configuration files to create a project from the scratch. When saving an R project in a binder, it saves the R version being used to create the project to avoid possible confusions in future replications.  Therefore, I create a binder for the current project with mybinder.org, which is an online service to build and share binders. The binder for the current project can be found here
+* A binder is an online code repository contains code and contents, together with configuration files to create a project from the scratch. When saving an R project in a binder, it saves the R version being used to create the project to avoid possible confusions in future replications.  The binder for the current project can be found here
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Lindsey-R/psy8712-final/HEAD?urlpath=rstudio). Clicking this link will automatically open an R studio session built under R 4.2.3 (the version I use to run the project) with corresponding codes and data. 
 
 
