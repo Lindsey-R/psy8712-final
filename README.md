@@ -5,7 +5,7 @@ The current project is consisted of the final project material for PSY8712 class
 In the current project, I perform analysis based on a [pre-collected GRE dataset](https://www.openicpsr.org/openicpsr/project/155721/version/V1/view;jsessionid=CCA87775E2BAE63EE1B4FC92FF3AE409>). The dataset contains demographic information (sex, age, citizenship, major), GRE scores (GRE Verbal, Quant, and Writing), and other related outcomes (First Year GPA, etc.). 
 
 ### Project Description
-The project focuses on answering three hypothesis / research questions with the above dataset:
+The project focuses on answering three hypothesis / research questions with the above dataset:  
 H1. Is there a significant sex difference on GRE Verbal / Quantitative score?  
 RQ1. What are the correlations between GRE Verbal / Quantitative score with GPA across sex?  
 RQ2. How well can I predict 1st-Year GPA with GRE and demographic information using machine learning models?   
