@@ -83,7 +83,7 @@ R2_xgb <- cor(xgb_predict, GRE_test_tbl$`GPA`) ^2 |> round(2)
 
 ## Create results as a tibble
 results <- tibble(
-  algo = c("OLS regression","Elastic Net", "Random Forest", "XGB"),
+  algorithm = c("OLS regression","Elastic Net", "Random Forest", "xgbLinear"),
   cv_rsq = c(round(max(model_ols$results$Rsquared),2),
              round(max(model_elastic$results$Rsquared),2),
              round(max(model_rf$results$Rsquared),2),
