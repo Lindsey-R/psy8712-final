@@ -26,7 +26,8 @@ RQ2. How well can I predict 1st-Year GPA with GRE and demographic information us
    This file answers the 2nd research question, predict GPA with all selected variables using for ML models: OLS, glmnet, random forest, and xgboost.   
 * The "shiny" folder contains a shinyapp "GREShinyAPP".
   1. The app contains "app.R" showing the script of a shiny app, and "data.rds" used to produce the shiny app. The shiny app can be found [here](https://purplefishlovespig.shinyapps.io/greshinyapp/).
-  2. The app was created as an extension of RQ1, with interacting plots showing correlations based on different demographic groups. Specifically, allows user to choose from five options: Sex, Citizenship,  Major (Graduate Field Program), whether student finished program (Stay), and GRE (GRE Verbal, Quantitative, or Sum score). Based on the user’s choice, the app returns 1) a scatter plot showing the correlations between the selected GRE and GPA, with a linear predicting line and 2) a line of text output the correlation. 
+  2. The app was created as an extension of RQ1, with interacting plots showing correlations based on different demographic groups. Specifically, allows user to choose from five options: Sex, Citizenship,  Major (Graduate Field Program), whether student finished program (Stay), and GRE (GRE Verbal, Quantitative, or Sum score). Based on the user’s choice, the app returns 1) a scatter plot showing the correlations between the selected GRE and GPA, with a linear predicting line and 2) a line of text output the correlation.
+* The "docs" folder contains a project report "final.docx".
 
 
 
