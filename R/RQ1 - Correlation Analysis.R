@@ -23,4 +23,3 @@ GRE_data_correlation <- GRE_data %>%
   )
 
  
-GRE_data_correlation %>% View()
